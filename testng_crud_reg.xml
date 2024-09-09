@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <groups>
+        <run>
+            <include name="crud"></include>
+        </run>
+    </groups>
+    <test verbose="3" preserve-order="true" name="D:/APIAutomationATB7x_Framework">
+        <classes>
+            <class name="com.thetestingacademy.misc.TestFile"></class>
+        </classes>
+
+    </test>
+</suite>
