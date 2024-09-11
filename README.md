@@ -51,3 +51,10 @@ Reading YAML or JSON, Properties File code.
 Any Misc Utils, Faker
 Database Connection My SQL connector Code
 JDBC Connector code for the MYSQL data.
+
+#### Mobile Testing
+How you keep your locators
+flow, E2E
+start the sessions and close the sessions
+#### BDD with Cucmber?
+A Extra layer of the Feature File codes.
