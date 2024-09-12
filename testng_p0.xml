@@ -9,7 +9,7 @@
             </run>
         </groups>
         <packages>
-            <package name="com.thetestingacademy.crud.*"/>
+            <package name="com.thetestingacademy.crud.INT.*"/>
         </packages>
 
     </test>

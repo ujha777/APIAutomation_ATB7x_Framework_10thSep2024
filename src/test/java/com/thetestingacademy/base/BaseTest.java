@@ -1,5 +1,6 @@
 package com.thetestingacademy.base;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.thetestingacademy.actions.AssertActions;
 import com.thetestingacademy.endpoints.APIConstants;
 import com.thetestingacademy.modules.PayloadManager;
@@ -22,7 +23,7 @@ public class BaseTest {
 
     public static ValidatableResponse validatableResponse;
     @BeforeMethod(alwaysRun = true)
-    public void setUp(){
+    public void setConfig(){
         // Reset the Rest Assured Base URLs
         // Base URL
         // Content Type - ALL
@@ -34,10 +35,20 @@ public class BaseTest {
                 .baseUri(APIConstants.BASE_URL)
                 .contentType(ContentType.JSON);
 
-//        requestSpecification = new RequestSpecBuilder()
-//                .setBaseUri(APIConstants.BASE_URL)
-//                .addHeader("Content-Type", "application/json")
-//                .build().log().all();
+        /*requestSpecification = new RequestSpecBuilder()
+               .setBaseUri(APIConstants.BASE_URL).addHeader("Content-Type", "application/json").build().log().all();*/
 
     }
+
+    public String getToken() throws JsonProcessingException {
+
+        requestSpecification = RestAssured.given().baseUri(APIConstants.BASE_URL).basePath("/auth");
+        String payload = payloadManager.setToken();
+        response = requestSpecification.contentType(ContentType.JSON)
+                .body(payload)
+                .when().post();
+        jsonPath = new JsonPath(response.asString());
+        return jsonPath.getString("token");
+    }
+
 }

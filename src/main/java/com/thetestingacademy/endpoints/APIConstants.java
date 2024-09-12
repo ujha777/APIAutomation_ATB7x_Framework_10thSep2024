@@ -1,10 +1,28 @@
 package com.thetestingacademy.endpoints;
 
+import com.thetestingacademy.utils.PropertyReaderUtil;
+
 public class APIConstants {
+    public static String BASE_URL;
+    public static String USERNAME;
+    public static String PASSWORD;
+    public static String CREATE_BOOKING;
+    public static String UPDATE_BOOKING;
 
-    public static String BASE_URL="https://restful-booker.herokuapp.com/";
-    public static String CREATE_BOOKING="/booking";
-    public static String UPDATE_BOOKING="/booking";
-
+    static{
+       try {
+           BASE_URL=PropertyReaderUtil.readyKey("url");
+           System.out.println(BASE_URL);
+           USERNAME=PropertyReaderUtil.readyKey("username");
+           PASSWORD=PropertyReaderUtil.readyKey("password");
+           CREATE_BOOKING=PropertyReaderUtil.readyKey("BASE_PATH_BOOKING");
+           UPDATE_BOOKING=PropertyReaderUtil.readyKey("BASE_PATH_BOOKING");
+       } catch (Exception e) {
+           throw new RuntimeException(e);
+       }
+   }
 
 }
+
+
+
